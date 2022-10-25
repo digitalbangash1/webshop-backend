@@ -21,7 +21,7 @@ namespace webshop_backend.Repositories
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from mytable";
+                cmd.CommandText = "select * from Person";
 
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -45,7 +45,7 @@ namespace webshop_backend.Repositories
                 Name = reader["name"].ToString(),
                 Phone = reader["phone"].ToString(),
                 Email = reader["email"].ToString(),
-                ZipCode = reader["postalZip"].ToString(),
+                ZipCode = reader["ZipCode"].ToString(),
 
 
             };
