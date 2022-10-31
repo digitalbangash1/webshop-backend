@@ -21,7 +21,7 @@ namespace webshop_backend.Repositories
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from mytable";
+                cmd.CommandText = "select * from person";
 
                 using (var reader = cmd.ExecuteReader())
                 {
