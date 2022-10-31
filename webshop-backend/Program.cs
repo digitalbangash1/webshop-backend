@@ -13,6 +13,7 @@ builder.Services.AddCors();
 //Services
 builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<IPersonRespository, PersonRespository>();
+builder.Services.AddScoped<IUserRespository, UserRepository>();
 
 
 var app = builder.Build();
