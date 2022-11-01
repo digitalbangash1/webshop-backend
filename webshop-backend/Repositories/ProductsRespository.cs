@@ -53,8 +53,8 @@ namespace webshop_backend.Repositories
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO products (name, description, price, quantity) VALUES (@name, @description, @price, @quantity)";
-
+                cmd.CommandText = "UPDATE products SET name=@name, description=@description WHERE id=@id";
+                    
                 var nameParam = cmd.CreateParameter();
                 nameParam.ParameterName = "@name";
                 nameParam.Value = name;
@@ -81,7 +81,7 @@ namespace webshop_backend.Repositories
         }
 
         public IList<ProductsModel> GetProducts()
-            {
+        {
                 var products = new List<ProductsModel>();
                 using (var conn = dbConnectionService.Create())
                 {
@@ -101,7 +101,7 @@ namespace webshop_backend.Repositories
                 }
                 return products;
 
-            }
+        }
 
         private ProductsModel GetProducts(IDataReader reader)
         {
@@ -118,18 +118,18 @@ namespace webshop_backend.Repositories
         }
 
 
-        public void DeleteProduct(int Id)
+        public void DeleteProduct(int id)
         {
             using (var conn = dbConnectionService.Delete())
             {
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "DELETE FROM product WHERE productID=@id";
+                cmd.CommandText = "DELETE FROM product WHERE id=@id";
 
                 var idParam = cmd.CreateParameter();
                 idParam.ParameterName = "@id";
-                idParam.Value = Id;
+                idParam.Value = id;
                 cmd.Parameters.Add(idParam);
                 cmd.ExecuteNonQuery();
             };

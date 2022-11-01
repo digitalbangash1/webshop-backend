@@ -5,7 +5,7 @@ using webshop_backend.Repositories;
 namespace webshop_backend.Controllers
 {
     [ApiController]
-    [Route("Products")]
+    [Route("[controller]")]
     public class ProductsController : BaseController
     {
         private readonly IProductsRespository productsRespository;
@@ -26,7 +26,7 @@ namespace webshop_backend.Controllers
         [HttpPost]
         public Action CreateProduct(CreateProductModel model)
         {
-            ProductsRespository.CreateProduct(model.name, model.description, model.price, model.quantity);
+            ProductsRespository.CreateProducts(model.name, model.description, model.price, model.quantity);
             return Ok();
         }
 
@@ -35,7 +35,7 @@ namespace webshop_backend.Controllers
         [HttpDelete("{id}")]
         public Action DeleteProduct(int id)
         {
-            ProductsRespository.DeleteProduct('id');
+            ProductsRespository.DeleteProduct(id);
             return Ok();
         }
 
@@ -44,7 +44,7 @@ namespace webshop_backend.Controllers
         [HttpPut("{id}")]
         public Action UpdateProduct(int id,UpdateProductModel model)
         {
-            ProductsRespository.Update(id, model.name, model.description);
+            ProductsRespository.UpdateProduct(model.name, model.description, model.price, model.quantity);
             return Ok();
         }
     }

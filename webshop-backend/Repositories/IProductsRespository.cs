@@ -1,4 +1,4 @@
-﻿using webshop_backend.Model;
+﻿using webshop_backend.Model.Products;
 
 namespace webshop_backend.Repositories
 {
