@@ -26,9 +26,9 @@ namespace webshop_backend.Controllers
         [HttpPost]
         public Action CreateProduct(CreateProductModel model)
         {
-            ProductsRespository.CreateProducts(model.name, model.description, model.price, model.quantity);
+            ProductsRespository.CreateProduct(model.name, model.description, model.price, model.quantity);
             return Ok();
-        }
+        } 
 
 
 
