@@ -13,7 +13,7 @@ namespace webshop_backend.Repositories
             this.dbConnectionService = dbConnectionService;
         }
 
-        public void CreateProduct(string name, string description, int price, int quantity)
+        public void CreateProduct(string name, string description, decimal price, int quantity)
         {
             using (var conn = dbConnectionService.Create())
             {
@@ -135,7 +135,7 @@ namespace webshop_backend.Repositories
             };
         }
 
-        public void UpdateProduct(int id, string name, string description, int price, int quantity)
+        public void UpdateProduct(int id, string name, string description, decimal price, int quantity)
         {
             throw new NotImplementedException();
         }
