@@ -7,7 +7,7 @@ namespace webshop_backend.Repositories
 
     {
         //TODO this should not be in code but in appsettings.json
-        private static string connectionString = "server=localhost;port=3306;database=webshop;user=root;password=12345";
+        private static string connectionString = "server=localhost;port=3306;database=webshop;user=root;password=123456";
 
         public IDbConnection Create()
         {
