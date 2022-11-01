@@ -135,6 +135,9 @@ namespace webshop_backend.Repositories
             };
         }
 
-
+        public void UpdateProduct(int id, string name, string description, int price, int quantity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
