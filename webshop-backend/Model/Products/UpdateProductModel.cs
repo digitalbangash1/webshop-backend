@@ -10,9 +10,9 @@ namespace webshop_backend.Model.Products
 
         public string description { get; set; }
 
-        public string price { get; set; }
+        public decimal price { get; set; }
 
-        public string quantity { get; set; }
+        public int quantity { get; set; }
 
     }
 }

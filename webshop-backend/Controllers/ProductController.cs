@@ -8,23 +8,23 @@ namespace webshop_backend.Controllers
     [Route("[controller]")]
     public class ProductsController : BaseController
     {
-        private readonly IProductsRespository productsRespository;
+        private readonly IProductsRespository ProductsRespository;
 
         public ProductsController(IProductsRespository productsRespository)
         {
-            this.productsRespository = productsRespository;
+            this.ProductsRespository = productsRespository;
 
         }
 
         [HttpGet]
-        public Action GetProducts()
+        public IActionResult GetProducts()
         {
             return Ok(ProductsRespository.GetProducts());
         }
 
 
         [HttpPost]
-        public Action CreateProduct(CreateProductModel model)
+        public IActionResult CreateProduct(CreateProductModel model)
         {
             ProductsRespository.CreateProduct(model.name, model.description, model.price, model.quantity);
             return Ok();
@@ -33,7 +33,7 @@ namespace webshop_backend.Controllers
 
 
         [HttpDelete("{id}")]
-        public Action DeleteProduct(int id)
+        public IActionResult DeleteProduct(int id)
         {
             ProductsRespository.DeleteProduct(id);
             return Ok();
@@ -42,9 +42,9 @@ namespace webshop_backend.Controllers
 
 
         [HttpPut("{id}")]
-        public Action UpdateProduct(int id,UpdateProductModel model)
+        public IActionResult UpdateProduct(int id,UpdateProductModel model)
         {
-            ProductsRespository.UpdateProduct(model.name, model.description, model.price, model.quantity);
+            ProductsRespository.UpdateProduct(id, model.name, model.description, model.price, model.quantity);
             return Ok();
         }
     }

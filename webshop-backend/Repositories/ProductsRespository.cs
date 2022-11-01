@@ -46,14 +46,14 @@ namespace webshop_backend.Repositories
             }
         }
 
-        public void UpdateProduct(string name, string description, int price, int quantity)
+        public void UpdateProduct(string name, string description, decimal price, int quantity)
         {
             using (var conn = dbConnectionService.Create())
             {
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "UPDATE products SET name=@name, description=@description WHERE id=@id";
+                cmd.CommandText = "UPDATE products SET name=@name, description=@description, price=@price, quantity=@quantity WHERE id=@id";
                     
                 var nameParam = cmd.CreateParameter();
                 nameParam.ParameterName = "@name";
@@ -135,6 +135,9 @@ namespace webshop_backend.Repositories
             };
         }
 
-
+        public void UpdateProduct(int id, string name, string description, int price, int quantity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

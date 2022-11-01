@@ -8,6 +8,7 @@ namespace webshop_backend.Repositories
         void UpdateProduct(int id, string name, string description, int price, int quantity);
         IList<ProductsModel> GetProducts();
         void DeleteProduct(int id);
+        void UpdateProduct(int id, string name, string description, string price, string quantity);
     }
 }
 
