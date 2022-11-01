@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>webshop_backend</RootNamespace>
+    <UserSecretsId>3a2962a5-75f4-4567-8af1-837e562e3fe1</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
