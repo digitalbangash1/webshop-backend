@@ -110,7 +110,7 @@ namespace webshop_backend.Repositories
                 id = Convert.ToInt32(reader["id"]),
                 name = reader["name"].ToString(),
                 description = reader["description"].ToString(),
-                price = Convert.ToInt32(reader["price"]),
+                price = Convert.ToDecimal(reader["price"]),
                 quantity = Convert.ToInt32(reader["quantity"]),
                 category_id = Convert.ToInt32(reader["category_id"]),
 
@@ -136,6 +136,21 @@ namespace webshop_backend.Repositories
         }
 
         public void UpdateProduct(int id, string name, string description, decimal price, int quantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateProduct(string name, string description, int price, int quantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateProduct(int id, string name, string description, int price, int quantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateProduct(int id, string name, string description, string price, string quantity)
         {
             throw new NotImplementedException();
         }
