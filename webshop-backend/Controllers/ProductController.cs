@@ -5,7 +5,7 @@ using webshop_backend.Repositories;
 namespace webshop_backend.Controllers
 {
     [ApiController]
-    [Route("Products")]
+    [Route("[controller]")]
     public class ProductsController : BaseController
     {
         private readonly IProductsRespository ProductsRespository;
@@ -26,7 +26,7 @@ namespace webshop_backend.Controllers
         [HttpPost]
         public IActionResult CreateProduct(CreateProductModel model)
         {
-            ProductsRespository.CreateProduct(model.name, model.description, model.price, model.quantity);
+            ProductsRespository.CreateProducts(model.name, model.description, model.price, model.quantity);
             return Ok();
         }
 
