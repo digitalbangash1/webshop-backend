@@ -14,6 +14,12 @@ namespace webshop_backend.Repositories
             return new MySqlConnection(connectionString);
 
         }
+
+        public IDbConnection Delete()
+        {
+            return new MySqlConnection(connectionString);
+
+        }
     }
 
 }
