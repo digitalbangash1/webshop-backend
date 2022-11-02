@@ -6,7 +6,7 @@ using webshop_backend.Model;
 
 namespace webshop_backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[Action]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -34,13 +34,13 @@ namespace webshop_backend.Controllers
             return Ok(response);
         }
 
-        /*[HttpPost]
-        public async Task<ActionResult> SignIn(SignInRequest request)
+        [HttpPost]
+        public async Task<ActionResult> Login(LoginRequest request)
         {
-            SignInResponse response = new SignInResponse();
+            LoginResponse response = new LoginResponse();
             try
             {
-                response = await auth.SignIn(request);
+               // response = await auth.SignIn(request);
             }
             catch (Exception ex)
             {
@@ -49,7 +49,7 @@ namespace webshop_backend.Controllers
             }
 
             return Ok(response);
-        }*/
+        }
 
 
 

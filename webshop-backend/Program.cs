@@ -1,5 +1,5 @@
 using webshop_backend.Auth;
-using webshop_backend.Repositories;
+//using webshop_backend.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,9 +12,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
 //Services
-builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
-builder.Services.AddScoped<IPersonRespository, PersonRespository>();
-builder.Services.AddScoped<IUserRespository, UserRepository>();
+//builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
+//builder.Services.AddScoped<IPersonRespository, PersonRespository>();
+//builder.Services.AddScoped<IUserRespository, UserRepository>();
 builder.Services.AddScoped<AuthI, Author>();
 
 var app = builder.Build();
@@ -33,3 +33,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+app.UseRouting();

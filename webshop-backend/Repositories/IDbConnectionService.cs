@@ -1,4 +1,4 @@
-﻿using System.Data;
+﻿/*using System.Data;
 
 namespace webshop_backend.Repositories
 {
@@ -6,4 +6,4 @@ namespace webshop_backend.Repositories
     {
         IDbConnection Create();
     }
-}
+}*/

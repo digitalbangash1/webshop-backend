@@ -1,4 +1,5 @@
 ﻿using Microsoft.Graph;
+using MySql.Data.MySqlClient;
 using webshop_backend.Model;
 
 namespace webshop_backend.Auth
@@ -6,9 +7,11 @@ namespace webshop_backend.Auth
     public class Author : AuthI
     {
         public readonly IConfiguration conf;
-        public Author(IConfiguration conf)
+        public readonly MySqlConnection sqlConnection;
+        public Author(IConfiguration config)
         {
-            this.conf = conf;
+            conf = config;
+            sqlConnection = new MySqlConnection(conf["ConnectionStrings:DBConnectionString"]);
         }
 
 

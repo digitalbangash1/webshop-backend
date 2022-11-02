@@ -1,4 +1,4 @@
-﻿using webshop_backend.Model;
+﻿/*using webshop_backend.Model;
 
 namespace webshop_backend.Repositories
 {
@@ -6,4 +6,4 @@ namespace webshop_backend.Repositories
     {
         IList<User> GetUsers();
     }
-}
+}*/

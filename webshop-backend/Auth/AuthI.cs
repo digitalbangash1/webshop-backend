@@ -5,6 +5,7 @@ namespace webshop_backend.Auth
 {
     public interface AuthI
     {
-        Task<SignUpResponse> User(UserRequest request);
-    }
+      public  Task<SignUpResponse> User(UserRequest request);
+      public  Task<LoginResponse> Login(LoginRequest request);
+    }  
 }

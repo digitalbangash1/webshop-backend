@@ -1,4 +1,4 @@
-﻿using webshop_backend.Model;
+﻿/*using webshop_backend.Model;
 using System.Data;
 
 namespace webshop_backend.Repositories
@@ -53,4 +53,4 @@ namespace webshop_backend.Repositories
             };
         }
     }
-}
+}*/
