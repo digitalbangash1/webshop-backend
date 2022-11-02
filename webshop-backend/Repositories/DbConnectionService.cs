@@ -7,8 +7,9 @@ namespace webshop_backend.Repositories
 
     {
         //TODO this should not be in code but in appsettings.json
-        private static string connectionString = "server=localhost;port=3306;database=webshop;user=root;password=123456";
-
+        private static string connectionString = "server=mysql-database-db.admin.samat.diplomportal.dk;port=3306;database=webshop;user=root;password=salim123";
+            //"mysql-database-db.admin.samat.diplomportal.dk";
+        //server=localhost;port=3306;database=webshop;user=root;password=123456
         public IDbConnection Create()
         {
             return new MySqlConnection(connectionString);
