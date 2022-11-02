@@ -10,4 +10,9 @@
         public string Email { get; set; }
         public string AdminID { get; set; }
     }
+    public class SignUpResponse
+    {
+        public bool IsSuccess { get; set; }
+        public string Message { get; set; }
+    }
 }

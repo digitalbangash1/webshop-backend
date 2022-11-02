@@ -1,3 +1,4 @@
+using webshop_backend.Auth;
 using webshop_backend.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +15,7 @@ builder.Services.AddCors();
 builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<IPersonRespository, PersonRespository>();
 builder.Services.AddScoped<IUserRespository, UserRepository>();
-
+builder.Services.AddScoped<AuthI, Author>();
 
 var app = builder.Build();
 

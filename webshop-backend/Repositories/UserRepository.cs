@@ -42,7 +42,7 @@ namespace webshop_backend.Repositories
             return new User()
             {
                 ID = Convert.ToInt32(reader["id"]),
-                PassWord = reader["password"].ToString(),
+                PassWord   = reader["password"].ToString(),
                 FirstName  = reader["firstname"].ToString(),
                 LastName   = reader["lastname"].ToString(),
                 Telephone  = reader["telephone"].ToString(),
