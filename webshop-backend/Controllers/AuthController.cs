@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Graph;
 using webshop_backend.Auth;
 using webshop_backend.Model;
+
 
 namespace webshop_backend.Controllers
 {
@@ -18,7 +18,7 @@ namespace webshop_backend.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> User(UserRequest request)
+        public async Task<ActionResult> User(RegisterRequest request)
         {
             SignUpResponse response = new SignUpResponse();
             try

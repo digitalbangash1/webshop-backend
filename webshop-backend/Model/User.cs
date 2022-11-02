@@ -1,7 +1,8 @@
 ﻿namespace webshop_backend.Model
 {
-    public class User
+    public class RegisterRequest
     {
+
         public int ID { get; set; }
         public string PassWord { get; set; }
         public string FirstName { get; set; }

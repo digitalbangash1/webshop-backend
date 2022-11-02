@@ -14,8 +14,12 @@ namespace webshop_backend.Auth
             sqlConnection = new MySqlConnection(conf["ConnectionStrings:DBConnectionString"]);
         }
 
+        public Task<LoginResponse> Login(LoginRequest request)
+        {
+            throw new NotImplementedException();
+        }
 
-        public Task<SignUpResponse> User(UserRequest request)
+        public Task<SignUpResponse> User(RegisterRequest request)
         {
             throw new NotImplementedException();
         }
