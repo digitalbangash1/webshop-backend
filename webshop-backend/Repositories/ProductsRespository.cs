@@ -20,7 +20,7 @@ namespace webshop_backend.Repositories
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO products (name, description, price, quantity) VALUES (@name, @description, @price, @quantity)";
+                cmd.CommandText = "INSERT INTO product (name, description, price, quantity) VALUES (@name, @description, @price, @quantity)";
 
                 var nameParam = cmd.CreateParameter();
                 nameParam.ParameterName = "@name";
@@ -39,7 +39,7 @@ namespace webshop_backend.Repositories
 
                 var quantityParam = cmd.CreateParameter();
                 quantityParam.ParameterName = "@quantity";
-                quantityParam.Value = description;
+                quantityParam.Value = quantity;
                 cmd.Parameters.Add(quantityParam);
 
                 cmd.ExecuteNonQuery();
@@ -53,8 +53,13 @@ namespace webshop_backend.Repositories
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "UPDATE products SET name=@name, description=@description, price=@price, quantity=@quantity WHERE id=@id";
-                    
+                cmd.CommandText = "UPDATE product SET name=@name, description=@description, price=@price, quantity=@quantity WHERE id=@id";
+
+                var idParam = cmd.CreateParameter();
+                idParam.ParameterName = "@id";
+                idParam.Value = id;
+                cmd.Parameters.Add(idParam);
+
                 var nameParam = cmd.CreateParameter();
                 nameParam.ParameterName = "@name";
                 nameParam.Value = name;
@@ -72,7 +77,7 @@ namespace webshop_backend.Repositories
 
                 var quantityParam = cmd.CreateParameter();
                 quantityParam.ParameterName = "@quantity";
-                quantityParam.Value = description;
+                quantityParam.Value = quantity;
                 cmd.Parameters.Add(quantityParam);
 
                 cmd.ExecuteNonQuery();
