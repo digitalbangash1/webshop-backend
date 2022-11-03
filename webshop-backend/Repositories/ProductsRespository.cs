@@ -46,7 +46,7 @@ namespace webshop_backend.Repositories
             }
         }
 
-        public void UpdateProduct(string name, string description, decimal price, int quantity)
+        public void UpdateProduct(int id, string name, string description, decimal price, int quantity)
         {
             using (var conn = dbConnectionService.Create())
             {
@@ -133,26 +133,6 @@ namespace webshop_backend.Repositories
                 cmd.Parameters.Add(idParam);
                 cmd.ExecuteNonQuery();
             };
-        }
-
-        public void UpdateProduct(int id, string name, string description, decimal price, int quantity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreateProduct(string name, string description, int price, int quantity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateProduct(int id, string name, string description, int price, int quantity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateProduct(int id, string name, string description, string price, string quantity)
-        {
-            throw new NotImplementedException();
         }
     }
 }

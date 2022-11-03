@@ -6,6 +6,7 @@ namespace webshop_backend.Model.Products
 	public class UpdateProductModel
 	{
         [Required(ErrorMessage = "Required")]
+
         public string name { get; set; }
 
         public string description { get; set; }
