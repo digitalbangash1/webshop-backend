@@ -1,3 +1,4 @@
+
 using webshop_backend.Auth;
 //using webshop_backend.Repositories;
 
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
+
 
 //Services
 //builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
@@ -34,3 +36,11 @@ app.MapControllers();
 
 app.Run();
 app.UseRouting();
+app.UseCors();
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
+

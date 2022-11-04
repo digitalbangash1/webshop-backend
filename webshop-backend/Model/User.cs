@@ -3,13 +3,15 @@
     public class RegisterRequest
     {
 
-        public int ID { get; set; }
-        public string PassWord { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Telephone { get; set; }
+         // public int ID { get; set; }
         public string Email { get; set; }
-        public string AdminID { get; set; }
+        public string PassWord { get; set; }
+        public string ConfirmPassWord { get; set; }
+        //public string Name { get; set; }
+        //public string LastName { get; set; }
+       // public string Telephone { get; set; }
+        
+      //  public string AdminID { get; set; }
         public string Role { get; set; }
     }
     public class SignUpResponse

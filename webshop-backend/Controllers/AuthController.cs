@@ -23,7 +23,7 @@ namespace webshop_backend.Controllers
             SignUpResponse response = new SignUpResponse();
             try
             {
-                //response = await auth.User(request);
+                response = await auth.User(request);
             }
             catch(Exception ex)
             {
@@ -40,7 +40,7 @@ namespace webshop_backend.Controllers
             LoginResponse response = new LoginResponse();
             try
             {
-               // response = await auth.SignIn(request);
+                response = await auth.Login(request);
             }
             catch (Exception ex)
             {
