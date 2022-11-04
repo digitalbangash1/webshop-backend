@@ -20,7 +20,7 @@ namespace webshop_backend.Repositories
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO product (name, description, price, quantity) VALUES (@name, @description, @price, @quantity)";
+                cmd.CommandText = "INSERT INTO product (name, description, price, quantity,) VALUES (@name, @description, @price, @quantity)";
 
                 var nameParam = cmd.CreateParameter();
                 nameParam.ParameterName = "@name";
@@ -118,6 +118,8 @@ namespace webshop_backend.Repositories
                 price = Convert.ToDecimal(reader["price"]),
                 quantity = Convert.ToInt32(reader["quantity"]),
                 category_id = Convert.ToInt32(reader["category_id"]),
+                type = reader["type"].ToString(),
+                imageLink= reader["imagelink"].ToString(),
 
             };
         }
