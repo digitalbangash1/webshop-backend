@@ -18,9 +18,11 @@ namespace webshop_backend.Auth
         public async Task<LoginResponse> Login(LoginRequest request)
         {
 
-            LoginResponse response = new LoginResponse();
-            response.IsSuccess = true;
-            response.Message = "Successful";
+            LoginResponse response = new LoginResponse
+            {
+                IsSuccess = true,
+                Message = "Successful"
+            };
 
 
             try
