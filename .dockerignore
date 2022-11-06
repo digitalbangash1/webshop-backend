@@ -1,2 +1,4 @@
-[b|B]in
-[o|O]bj
+bin/
+obj/
+out/
+TestResults/
