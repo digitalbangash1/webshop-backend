@@ -4,15 +4,12 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 
 
-COPY webshop-backend.csproj .
-RUN dotnet restore
-
-
 COPY . .
+
 
 RUN dotnet build  -c Release
 RUN dotnet test 
-RUN dotnet publish -c Release -o /dist
+RUN dotnet publish -c Release -o /app
 
 
    
@@ -23,5 +20,5 @@ ENV ASPNETCORE_URLs http://+:80
 EXPOSE 80
 
 WORKDIR /app
-COPY --from=build /dist .
-CMD ["dotnet", "webshop-backend.dll"]
+COPY --from=build /app ./
+ENTRYPOINT ["dotnet", "webshop-backend.dll"]
