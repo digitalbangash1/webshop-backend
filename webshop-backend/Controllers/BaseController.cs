@@ -1,4 +1,4 @@
-/*using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace webshop_backend.Controllers
 {
@@ -8,4 +8,4 @@ namespace webshop_backend.Controllers
     {
 
     }
-}*/
+}

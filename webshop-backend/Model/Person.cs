@@ -1,4 +1,4 @@
-﻿/*namespace webshop_backend.Model
+﻿namespace webshop_backend.Model
 {
     public class Person
     {
@@ -10,4 +10,4 @@
 
         public string? ZipCode { get; set; }
     }
-}*/
+}

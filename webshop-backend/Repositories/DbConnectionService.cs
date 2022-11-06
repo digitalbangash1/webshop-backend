@@ -1,4 +1,4 @@
-﻿/*
+﻿
 using MySql.Data.MySqlClient;
 using System.Data;
 
@@ -30,7 +30,7 @@ namespace webshop_backend.Repositories
         }
     }
 
-}*/
+}
 
    
 
