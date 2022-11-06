@@ -1,4 +1,4 @@
-﻿using webshop_backend.Model;
+﻿/*using webshop_backend.Model;
 using System.Data;
 
 namespace webshop_backend.Repositories
@@ -45,10 +45,10 @@ namespace webshop_backend.Repositories
                 Name = reader["name"].ToString(),
                 Phone = reader["phone"].ToString(),
                 Email = reader["email"].ToString(),
-                ZipCode = reader["postalZip"].ToString(),
+                ZipCode = reader["ZipCode"].ToString(),
 
 
             };
         }
     }
-}
+}*/

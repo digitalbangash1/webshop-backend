@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*using Microsoft.AspNetCore.Mvc;
 using webshop_backend.Model;
 using webshop_backend.Repositories;
 
@@ -20,4 +20,4 @@ namespace webshop_backend.Controllers
             return personRespository.GetPersons();
         }
     }
-}
+}*/

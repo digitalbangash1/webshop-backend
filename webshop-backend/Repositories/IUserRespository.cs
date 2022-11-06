@@ -2,8 +2,8 @@
 
 namespace webshop_backend.Repositories
 {
-    public interface IPersonRespository
+    public interface IUserRespository
     {
-        IList<Person> GetPersons();
+        IList<User> GetUsers();
     }
 }*/

@@ -16,16 +16,6 @@ builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<IPersonRespository, PersonRespository>();
 builder.Services.AddScoped<IProductsRespository, ProductsRespository>();
 
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
 app.UseCors(options =>
 {
     options.AllowAnyOrigin();
@@ -36,5 +26,3 @@ app.UseCors(options =>
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.Run();
