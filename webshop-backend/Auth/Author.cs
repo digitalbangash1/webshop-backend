@@ -40,7 +40,7 @@ namespace webshop_backend.Auth
                     sqlCommand.Parameters.AddWithValue("@Email", request.Email);
                     sqlCommand.Parameters.AddWithValue("@PassWord", request.PassWord);
                     sqlCommand.Parameters.AddWithValue("@Role", request.Role);
-                   using(DbDataReader reader = sqlCommand.ExecuteReader())
+                   using (DbDataReader reader = sqlCommand.ExecuteReader())
                     {
                         if (reader.HasRows)
                         {
