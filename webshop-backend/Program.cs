@@ -20,6 +20,13 @@ builder.Services.AddCors();
 builder.Services.AddScoped<AuthI, Author>();
 
 var app = builder.Build();
+app.UseCors();
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -36,11 +43,6 @@ app.MapControllers();
 
 app.Run();
 app.UseRouting();
-app.UseCors();
-app.UseCors(builder =>
-{
-    builder.AllowAnyOrigin()
-           .AllowAnyMethod()
-           .AllowAnyHeader();
-});
+
+
 
