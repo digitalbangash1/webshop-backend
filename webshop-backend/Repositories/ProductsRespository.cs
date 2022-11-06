@@ -140,6 +140,62 @@ namespace webshop_backend.Repositories
                 cmd.Parameters.Add(idParam);
                 cmd.ExecuteNonQuery();
             };
+
+
+        }
+
+        public ProductsDetailModel GetById(int id)
+        {
+            ProductsDetailModel model = null;
+            using (var conn = dbConnectionService.Create())
+            {
+                conn.Open();
+                var cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"
+                    SELECT a.*, 
+                    b.id as videoId, b.videoTitle, b.videoDes, b.videoLink as youtubeVideoId, 
+                    c.id as articleId, c.articleTitle, c.articleDes, c.articleLink
+                    FROM product a
+                    
+                    where a.id = @id
+                ";
+
+                var idParam = cmd.CreateParameter();
+                idParam.ParameterName = "@id";
+                idParam.Value = id;
+                cmd.Parameters.Add(idParam);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (model == null)
+                        {
+                            model = new ProductsDetailModel
+                            {
+                               id = id,
+                                name = reader.GetStringValue("name"),
+                                description = reader.GetStringValue("description")
+                            };
+                        }
+
+                        var hasVideo = !reader.IsNull("videoId");
+                        if (hasVideo)
+                        {
+                            model.Videos.Add(GetVideo(reader));
+                        }
+
+                        var hasArticle = !reader.IsNull("articleId");
+                        if (hasArticle)
+                        {
+                            model.Articles.Add(GetArticle(reader));
+                        }
+                    }
+                }
+            }
+
+            return model;
         }
     }
 }
