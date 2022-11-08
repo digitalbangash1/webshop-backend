@@ -144,21 +144,16 @@ namespace webshop_backend.Repositories
 
         }
 
-        public ProductsDetailModel GetById(int id)
+        public ProductsDetailModel GetProductsDetail(int id)
         {
-            ProductsDetailModel model = null;
+            ProductsDetailModel? model = null;
             using (var conn = dbConnectionService.Create())
             {
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = @"
-                    SELECT a.*, 
-                    b.id as videoId, b.videoTitle, b.videoDes, b.videoLink as youtubeVideoId, 
-                    c.id as articleId, c.articleTitle, c.articleDes, c.articleLink
-                    FROM product a
-                    
-                    where a.id = @id
+                     SELECT a.*FROM product a where a.id = @id
                 ";
 
                 var idParam = cmd.CreateParameter();
@@ -174,23 +169,15 @@ namespace webshop_backend.Repositories
                         {
                             model = new ProductsDetailModel
                             {
-                               id = id,
-                                name = reader.GetStringValue("name"),
-                                description = reader.GetStringValue("description")
+                               id = Convert.ToInt32(reader["id"]),
+                                name = reader["name"].ToString(),
+                                description = reader["description"].ToString(),
                             };
                         }
 
-                        var hasVideo = !reader.IsNull("videoId");
-                        if (hasVideo)
-                        {
-                            model.Videos.Add(GetVideo(reader));
-                        }
+                        
 
-                        var hasArticle = !reader.IsNull("articleId");
-                        if (hasArticle)
-                        {
-                            model.Articles.Add(GetArticle(reader));
-                        }
+                        
                     }
                 }
             }

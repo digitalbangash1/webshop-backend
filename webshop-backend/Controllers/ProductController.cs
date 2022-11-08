@@ -47,5 +47,16 @@ namespace webshop_backend.Controllers
             ProductsRespository.UpdateProduct(id, model.name, model.description, model.price, model.quantity);
             return Ok();
         }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var model = ProductsRespository.GetProductsDetail(id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+            return Ok(model);
+        }
     }
 }
