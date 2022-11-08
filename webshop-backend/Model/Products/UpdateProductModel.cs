@@ -15,6 +15,8 @@ namespace webshop_backend.Model.Products
 
         public int quantity { get; set; }
 
+        public string imagelink { get; set; }
+
     }
 }
 

@@ -13,14 +13,16 @@ namespace webshop_backend.Repositories
             this.dbConnectionService = dbConnectionService;
         }
 
-        public void CreateProduct(string name, string description, decimal price, int quantity)
+        public void CreateProduct(string name, string description, decimal price, int quantity, string imagelink)
         {
             using (var conn = dbConnectionService.Create())
             {
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO product (name, description, price, quantity,) VALUES (@name, @description, @price, @quantity)";
+
+                cmd.CommandText = "INSERT INTO product (name, description, price, quantity, imagelink) VALUES (@name, @description, @price, @quantity, @imagelink)";
+
 
                 var nameParam = cmd.CreateParameter();
                 nameParam.ParameterName = "@name";
@@ -42,18 +44,23 @@ namespace webshop_backend.Repositories
                 quantityParam.Value = quantity;
                 cmd.Parameters.Add(quantityParam);
 
+                var imagelinkParam = cmd.CreateParameter();
+                imagelinkParam.ParameterName = "@imagelink";
+                imagelinkParam.Value = imagelink;
+                cmd.Parameters.Add(imagelinkParam);
+
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public void UpdateProduct(int id, string name, string description, decimal price, int quantity)
+        public void UpdateProduct(int id, string name, string description, decimal price, int quantity, string imagelink)
         {
             using (var conn = dbConnectionService.Create())
             {
                 conn.Open();
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "UPDATE product SET name=@name, description=@description, price=@price, quantity=@quantity WHERE id=@id";
+                cmd.CommandText = "UPDATE product SET name=@name, description=@description, price=@price, quantity=@quantity, imagelink=@imagelink WHERE id=@id";
 
                 var idParam = cmd.CreateParameter();
                 idParam.ParameterName = "@id";
@@ -79,6 +86,11 @@ namespace webshop_backend.Repositories
                 quantityParam.ParameterName = "@quantity";
                 quantityParam.Value = quantity;
                 cmd.Parameters.Add(quantityParam);
+
+                var imagelinkParam = cmd.CreateParameter();
+                imagelinkParam.ParameterName = "@imagelink";
+                imagelinkParam.Value = imagelink;
+                cmd.Parameters.Add(imagelinkParam);
 
                 cmd.ExecuteNonQuery();
             }
@@ -117,9 +129,9 @@ namespace webshop_backend.Repositories
                 description = reader["description"].ToString(),
                 price = Convert.ToDecimal(reader["price"]),
                 quantity = Convert.ToInt32(reader["quantity"]),
-                category_id = Convert.ToInt32(reader["category_id"]),
                 type = reader["type"].ToString(),
-                imageLink= reader["imagelink"].ToString(),
+                imagelink= reader["imagelink"].ToString(),
+
 
             };
         }
