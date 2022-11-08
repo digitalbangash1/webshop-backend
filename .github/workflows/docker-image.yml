@@ -33,7 +33,7 @@ jobs:
       - name: Deploy app
         env: 
           APP_NAME: 'webshop-backend'
-          APP_URL: 'https://backend-webshop.admin.samat.diplomportal.dk/'
+          APP_URL: 'https://admin.samat.diplomportal.dk/'
           IMAGE_NAME: 'salim963/mmywebshopbackend:${{github.run_number}}'
         run: 
          'caprover deploy --caproverUrl=$APP_URL --caproverPassword=${{ secrets.CAPROVER_PASSWORD }} --imageName=$IMAGE_NAME --appName=$APP_NAME'
