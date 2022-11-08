@@ -13,7 +13,7 @@ namespace webshop_backend.Repositories
             this.dbConnectionService = dbConnectionService;
         }
 
-        public void CreateProduct(string name, string description, decimal price, int quantity, string imageLink)
+        public void CreateProduct(string name, string description, decimal price, int quantity, string imagelink)
         {
             using (var conn = dbConnectionService.Create())
             {
@@ -46,7 +46,7 @@ namespace webshop_backend.Repositories
 
                 var imagelinkParam = cmd.CreateParameter();
                 imagelinkParam.ParameterName = "@imagelink";
-                imagelinkParam.Value = imageLink;
+                imagelinkParam.Value = imagelink;
                 cmd.Parameters.Add(imagelinkParam);
 
                 cmd.ExecuteNonQuery();
@@ -88,7 +88,7 @@ namespace webshop_backend.Repositories
                 cmd.Parameters.Add(quantityParam);
 
                 var imagelinkParam = cmd.CreateParameter();
-                imagelinkParam.ParameterName = "@imageLink";
+                imagelinkParam.ParameterName = "@imagelink";
                 imagelinkParam.Value = imagelink;
                 cmd.Parameters.Add(imagelinkParam);
 
