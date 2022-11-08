@@ -11,7 +11,8 @@
 
 		public int quantity { get; set; }
 
-		public int category_id { get; set; }
+		public string imageLink { get; set; }
+
 	
 	
 	}
