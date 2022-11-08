@@ -140,6 +140,49 @@ namespace webshop_backend.Repositories
                 cmd.Parameters.Add(idParam);
                 cmd.ExecuteNonQuery();
             };
+
+
+        }
+
+        public ProductsDetailModel GetProductsDetail(int id)
+        {
+            ProductsDetailModel? model = null;
+            using (var conn = dbConnectionService.Create())
+            {
+                conn.Open();
+                var cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"
+                     SELECT a.*FROM product a where a.id = @id
+                ";
+
+                var idParam = cmd.CreateParameter();
+                idParam.ParameterName = "@id";
+                idParam.Value = id;
+                cmd.Parameters.Add(idParam);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (model == null)
+                        {
+                            model = new ProductsDetailModel
+                            {
+                               id = Convert.ToInt32(reader["id"]),
+                                name = reader["name"].ToString(),
+                                description = reader["description"].ToString(),
+                            };
+                        }
+
+                        
+
+                        
+                    }
+                }
+            }
+
+            return model;
         }
     }
 }
