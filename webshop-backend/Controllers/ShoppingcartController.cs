@@ -1,14 +1,51 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using webshop_backend.Model.Products;
+using webshop_backend.Model;
 using webshop_backend.Repositories;
 
 namespace webshop_backend.Controllers
 {
-    public class ShoppingcartController : Controller
+    [ApiController]
+    [Route("Cart")]
+    public class ShoppingCartController : BaseController
     {
-        public IActionResult Index()
+        private readonly IShoppingcartRespository ShoppingcartRespository;
+
+        public ShoppingCartController(IShoppingcartRespository ShoppingcartRespository)
         {
-            return View();
+            this.ShoppingcartRespository = ShoppingcartRespository;
+
+        }
+
+        [HttpGet]
+        public IActionResult GetCart()
+        {
+            return Ok(ShoppingcartRespository.GetCart());
+        }
+
+
+        [HttpPost]
+        public IActionResult creatCart(ShoppingCart model)
+        {
+            ShoppingcartRespository.creatCart(model.id, model.product_id, model.user_id);
+            return Ok();
+        }
+
+
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteProduct(int id)
+        {
+            ShoppingcartRespository.deleteCart(id);
+            return Ok();
+        }
+
+
+
+        [HttpPut("{id}")]
+        public IActionResult updateCart(int id, ShoppingCart model)
+        {
+            ShoppingcartRespository.updateCart(id, model.product_id, model.user_id);
+            return Ok();
         }
     }
 }
