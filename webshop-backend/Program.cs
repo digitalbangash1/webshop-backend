@@ -1,3 +1,4 @@
+using webshop_backend.Auth;
 using webshop_backend.Repositories;
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -27,6 +28,8 @@ builder.Services.AddCors();
 builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<IPersonRespository, PersonRespository>();
 builder.Services.AddScoped<IProductsRespository, ProductsRespository>();
+builder.Services.AddScoped<AuthI, Author>();
+
 builder.Services.AddScoped<IShoppingcartRespository, ShoppingCartRespository>();
 var app = builder.Build();
 
