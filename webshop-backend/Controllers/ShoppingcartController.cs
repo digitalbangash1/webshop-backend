@@ -26,7 +26,7 @@ namespace webshop_backend.Controllers
         [HttpPost]
         public IActionResult creatCart(ShoppingCart model)
         {
-            ShoppingcartRespository.creatCart(model.id, model.product_id, model.user_id);
+            ShoppingcartRespository.creatCart(model.id, model.product_id, model.user_email);
             return Ok();
         }
 
@@ -44,7 +44,7 @@ namespace webshop_backend.Controllers
         [HttpPut("{id}")]
         public IActionResult updateCart(int id, ShoppingCart model)
         {
-            ShoppingcartRespository.updateCart(id, model.product_id, model.user_id);
+            ShoppingcartRespository.updateCart(id, model.product_id, model.user_email);
             return Ok();
         }
     }
