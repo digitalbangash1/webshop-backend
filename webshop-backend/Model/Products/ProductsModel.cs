@@ -13,7 +13,7 @@
 
         public string? type { get; set; }
 
-        public string? imageLink { get; set; }
+        public string? imagelink { get; set; }
 
 
     }

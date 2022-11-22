@@ -20,7 +20,4 @@
   <ItemGroup>
     <None Remove="Model\Products\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Products\" />
-  </ItemGroup>
 </Project>

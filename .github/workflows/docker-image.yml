@@ -25,4 +25,16 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/clockbox:latest
+          tags: salim963/mmywebshopbackend:${{github.run_number}},
+      # Install caprover cli
+      - name: install caprover cli
+        run: npm install -g caprover
+      # Trigger deploy on Caprover instance
+      - name: Deploy app
+        env: 
+          APP_NAME: 'backend-webshop'
+          APP_URL: 'https://admin.samat.diplomportal.dk/'
+          IMAGE_NAME: 'salim963/mmywebshopbackend:${{github.run_number}}'
+        run: 
+         'caprover deploy --caproverUrl=$APP_URL --caproverPassword=${{ secrets.CAPROVER_PASSWORD }} --imageName=$IMAGE_NAME --appName=$APP_NAME'
+      

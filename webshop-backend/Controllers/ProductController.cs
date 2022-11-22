@@ -26,7 +26,7 @@ namespace webshop_backend.Controllers
         [HttpPost]
         public IActionResult CreateProduct(CreateProductModel model)
         {
-            ProductsRespository.CreateProduct(model.name, model.description, model.price, model.quantity, model.imageLink);
+            ProductsRespository.CreateProduct(model.name, model.description, model.price, model.quantity, model.imagelink);
             return Ok();
         } 
 
@@ -44,8 +44,19 @@ namespace webshop_backend.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateProduct(int id,UpdateProductModel model)
         {
-            ProductsRespository.UpdateProduct(id, model.name, model.description, model.price, model.quantity, model.imageLink);
+            ProductsRespository.UpdateProduct(id, model.name, model.description, model.price, model.quantity, model.imagelink);
             return Ok();
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var model = ProductsRespository.GetProductsDetail(id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+            return Ok(model);
         }
     }
 }
