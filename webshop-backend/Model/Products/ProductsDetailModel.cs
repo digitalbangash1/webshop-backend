@@ -7,7 +7,7 @@
 
 		public string ?description { get; set; }
 
-		public string? imageLink { get; set; }
+		public string? imagelink { get; set; }
 
 
 	}
