@@ -169,7 +169,7 @@ namespace webshop_backend.Repositories
                 cmd.CommandText = @"
                      select a.*, 
 b.product_id, b.rating,b.review from product a 
-left outer join feedback b
+left outer join Feedback b
 on a.id = b.product_id
 where a.id = @id
                 ";
