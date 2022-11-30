@@ -1,5 +1,7 @@
-﻿using webshop_backend.Model.Products;
-using System.Data;
+﻿using System.Data;
+using webshop_backend.Extensions;
+using webshop_backend.Model;
+using webshop_backend.Model.Products;
 
 namespace webshop_backend.Repositories
 {
@@ -99,24 +101,24 @@ namespace webshop_backend.Repositories
 
         public IList<ProductsModel> GetProducts()
         {
-                var products = new List<ProductsModel>();
-                using (var conn = dbConnectionService.Create())
+            var products = new List<ProductsModel>();
+            using (var conn = dbConnectionService.Create())
+            {
+                conn.Open();
+                var cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from product";
+
+                using (var reader = cmd.ExecuteReader())
                 {
-                    conn.Open();
-                    var cmd = conn.CreateCommand();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "select * from product";
-
-                    using (var reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            products.Add(GetProducts(reader));
-                        }
+                        products.Add(GetProducts(reader));
                     }
-
                 }
-                return products;
+
+            }
+            return products;
 
         }
 
@@ -130,7 +132,7 @@ namespace webshop_backend.Repositories
                 price = Convert.ToDecimal(reader["price"]),
                 quantity = Convert.ToInt32(reader["quantity"]),
                 type = reader["type"].ToString(),
-                imagelink= reader["imagelink"].ToString(),
+                imagelink = reader["imagelink"].ToString(),
 
 
             };
@@ -165,7 +167,11 @@ namespace webshop_backend.Repositories
                 var cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = @"
-                     SELECT a.*FROM product a where a.id = @id
+                     select a.*, 
+b.product_id, b.rating,b.review from product a 
+left outer join Feedback b
+on a.id = b.product_id
+where a.id = @id
                 ";
 
                 var idParam = cmd.CreateParameter();
@@ -181,21 +187,40 @@ namespace webshop_backend.Repositories
                         {
                             model = new ProductsDetailModel
                             {
-                               id = Convert.ToInt32(reader["id"]),
+                                id = Convert.ToInt32(reader["id"]),
                                 name = reader["name"].ToString(),
                                 description = reader["description"].ToString(),
-                                imageLink = reader["imagelink"].ToString(),
+                                imagelink = reader["imagelink"].ToString(),
                             };
                         }
+                        var hasFeedback = !reader.IsNull("id");
 
-                        
+                        if (hasFeedback)
+                        {
+                            model.Feedback.Add(GetFeedback(reader));
+                        }
 
-                        
+
+
+
                     }
                 }
             }
 
             return model;
+        }
+
+        private Feedback GetFeedback(IDataReader reader)
+        {
+            return new Feedback
+            {
+                id = Convert.ToInt32(reader["id"]),
+                rating = Convert.ToInt32(reader["rating"]),
+                review = reader["review"].ToString(),
+                product_id = Convert.ToInt32(reader["product_id"]),
+
+
+            };
         }
     }
 }

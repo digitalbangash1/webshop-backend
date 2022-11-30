@@ -45,7 +45,7 @@ namespace webshop_backend.Repositories
                 Name = reader["name"].ToString(),
                 Phone = reader["phone"].ToString(),
                 Email = reader["email"].ToString(),
-                ZipCode = reader["postalZip"].ToString(),
+                ZipCode = reader["ZipCode"].ToString(),
 
 
             };

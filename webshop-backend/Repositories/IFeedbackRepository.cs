@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using webshop_backend.Model;
 
 namespace webshop_backend.Repositories
@@ -11,3 +12,11 @@ namespace webshop_backend.Repositories
     }
 }
 
+=======
+﻿namespace webshop_backend.Repositories
+{
+    public interface IFeedbackRepository
+    {
+    }
+}
+>>>>>>> master

@@ -19,7 +19,7 @@ namespace webshop_backend.Repositories
 
 
 
-        public void creatCart(int id, int product_id, int user_id)
+        public void creatCart(int id, int product_id, string user_email)
         {
             using (var conaction = dbConnectionService.Create())
             {
@@ -27,7 +27,7 @@ namespace webshop_backend.Repositories
                 var db = conaction.CreateCommand();
                 db.CommandType = CommandType.Text;
 
-                db.CommandText = "INSERT INTO shoppingCart (id , product_id, user_id) VALUES (@id, @product_id, @user_id)";
+                db.CommandText = "INSERT INTO shoppingCart (id , product_id, user_email) VALUES (@id, @product_id, @user_email)";
 
 
                 var idParam = db.CreateParameter();
@@ -41,8 +41,8 @@ namespace webshop_backend.Repositories
                 db.Parameters.Add(pIdParam);
 
                 var uIdParam = db.CreateParameter();
-                uIdParam.ParameterName = "@user_id";
-                uIdParam.Value = user_id;
+                uIdParam.ParameterName = "@user_email";
+                uIdParam.Value = user_email;
                 db.Parameters.Add(uIdParam);
 
                 db.ExecuteNonQuery();
@@ -51,7 +51,7 @@ namespace webshop_backend.Repositories
 
 
 
-        public void updateCart(int id, int product_id, int user_id)
+        public void updateCart(int id, int product_id, string user_email)
         {
             using (var conaction = dbConnectionService.Create())
             {
@@ -59,7 +59,7 @@ namespace webshop_backend.Repositories
                 var db = conaction.CreateCommand();
 
                 db.CommandType = CommandType.Text;
-                db.CommandText = "UPDATE shoppingCart SET id=@id, product_id=@product_id, user_id=@user_id  WHERE id=@id";
+                db.CommandText = "UPDATE shoppingCart SET id=@id, product_id=@product_id, user_email=@user_email  WHERE id=@id";
 
 
                 var idParam = db.CreateParameter();
@@ -73,8 +73,8 @@ namespace webshop_backend.Repositories
                 db.Parameters.Add(pIdParam);
 
                 var uIdParam = db.CreateParameter();
-                uIdParam.ParameterName = "@user_id";
-                uIdParam.Value = user_id;
+                uIdParam.ParameterName = "@user_email";
+                uIdParam.Value = user_email;
                 db.Parameters.Add(uIdParam);
 
                 db.ExecuteNonQuery();
@@ -112,7 +112,7 @@ namespace webshop_backend.Repositories
             {
                 id = Convert.ToInt32(reader["id"]),
                 product_id = Convert.ToInt32(reader["product_id"]),
-                user_id = Convert.ToInt32(reader["user_id"])
+                user_email = Convert.ToString(reader["user_email"])
 
 
             };

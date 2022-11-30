@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using webshop_backend.Model;
 using System.Data;
 using webshop_backend.Model.Products;
@@ -93,5 +94,11 @@ namespace webshop_backend.Repositories
 
             };
         }
+=======
+﻿namespace webshop_backend.Repositories
+{
+    public class FeedbackRepository
+    {
+>>>>>>> master
     }
 }
