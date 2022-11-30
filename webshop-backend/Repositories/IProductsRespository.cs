@@ -10,7 +10,7 @@ namespace webshop_backend.Repositories
         void DeleteProduct(int id);
 
         ProductsDetailModel GetProductsDetail(int id);
-       
+
     }
 }
 

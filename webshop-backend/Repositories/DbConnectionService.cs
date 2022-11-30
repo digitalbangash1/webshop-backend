@@ -4,12 +4,13 @@ using System.Data;
 
 namespace webshop_backend.Repositories
 {
-    public class DbConnectionService :IDbConnectionService
+    public class DbConnectionService : IDbConnectionService
 
     {
         //TODO this should not be in code but in appsettings.json
-       // private static string connectionString = "server=localhost;port=3306;database=webshop;user=root;password=salim123";
-        private static string connectionString = "server=mysql-database-db.admin.samat.diplomportal.dk;port=3306;database=webshop;user=root;password=salim123";
+        // private static string connectionString = "server=localhost;port=3306;database=webshop;user=root;password=salim123";
+        private static string connectionString = "server=localhost;port=3306;database=test1;user=root;password=123456";
+        //"server=mysql-database-db.admin.samat.diplomportal.dk;port=3306;database=webshop;user=root;password=salim123";
 
 
 
@@ -32,5 +33,5 @@ namespace webshop_backend.Repositories
 
 }
 
-   
+
 

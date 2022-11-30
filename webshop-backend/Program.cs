@@ -29,6 +29,8 @@ builder.Services.AddCors();
 builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<IPersonRespository, PersonRespository>();
 builder.Services.AddScoped<IProductsRespository, ProductsRespository>();
+
+
 builder.Services.AddScoped<AuthI, Author>();
 
 builder.Services.AddScoped<IShoppingcartRespository, ShoppingCartRespository>();
