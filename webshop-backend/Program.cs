@@ -27,6 +27,7 @@ builder.Services.AddCors();
 builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<IPersonRespository, PersonRespository>();
 builder.Services.AddScoped<IProductsRespository, ProductsRespository>();
+builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
 builder.Services.AddScoped<IShoppingcartRespository, ShoppingCartRespository>();
 var app = builder.Build();
 
