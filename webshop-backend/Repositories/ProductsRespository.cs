@@ -184,7 +184,7 @@ namespace webshop_backend.Repositories
                                id = Convert.ToInt32(reader["id"]),
                                 name = reader["name"].ToString(),
                                 description = reader["description"].ToString(),
-                                imageLink = reader["imagelink"].ToString(),
+                                imagelink = reader["imagelink"].ToString(),
                             };
                         }
 
