@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD
+
 using webshop_backend.Model;
 using webshop_backend.Repositories;
 
@@ -36,16 +36,6 @@ namespace webshop_backend.Controllers
     }
 }
 
-=======
 
-namespace webshop_backend.Controllers
-{
-    public class FeedbackController : Controller
-    {
-        public IActionResult Index()
-        {
-            return View();
-        }
-    }
-}
->>>>>>> master
+
+

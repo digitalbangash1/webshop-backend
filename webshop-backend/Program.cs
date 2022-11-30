@@ -29,14 +29,14 @@ builder.Services.AddCors();
 builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<IPersonRespository, PersonRespository>();
 builder.Services.AddScoped<IProductsRespository, ProductsRespository>();
-<<<<<<< HEAD
+
 builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
-=======
+
 
 
 builder.Services.AddScoped<AuthI, Author>();
 
->>>>>>> master
+
 builder.Services.AddScoped<IShoppingcartRespository, ShoppingCartRespository>();
 var app = builder.Build();
 

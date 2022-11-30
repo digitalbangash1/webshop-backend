@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ﻿using webshop_backend.Model;
 using System.Data;
 using webshop_backend.Model.Products;
@@ -10,12 +10,12 @@ namespace webshop_backend.Repositories
 
 
         private readonly IDbConnectionService dbConnectionService;
-        
+
 
         public FeedbackRepository(IDbConnectionService dbConnectionService)
         {
             this.dbConnectionService = dbConnectionService;
-            
+
 
         }
 
@@ -90,15 +90,10 @@ namespace webshop_backend.Repositories
                 review = Convert.ToString(reader["review"]),
                 rating = Convert.ToInt32(reader["rating"]),
                 product_id = Convert.ToInt32(reader["product_id"]),
-                
+
 
             };
         }
-=======
-﻿namespace webshop_backend.Repositories
-{
-    public class FeedbackRepository
-    {
->>>>>>> master
     }
 }
+
